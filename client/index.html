@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Deterministic Physics Dice</title>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div>
+        <h1>Deterministic Physics Dice</h1>
+        <p>Natural Rapier rigid-body simulation</p>
+      </div>
+      <div id="status" class="status">Loading…</div>
+    </header>
+
+    <section class="toolbar">
+      <label>
+        Skin
+        <select id="skinSelect">
+          <option value="red" selected>Red</option>
+          <option value="white">White</option>
+          <option value="yellow">Yellow</option>
+          <option value="silver">Silver</option>
+          <option value="tiedye">Tie-dye</option>
+        </select>
+      </label>
+
+      <label class="expression-field">
+        Dice expression
+        <input id="expressionInput" type="text" value="1d20" spellcheck="false" autocomplete="off" />
+      </label>
+
+      <button id="rollButton" disabled>Roll</button>
+      <button id="resetButton">Reset</button>
+    </section>
+
+    <section class="stage-wrap">
+      <div id="stage"></div>
+      <div id="overlay" class="overlay hidden">
+        <div id="overlayText"></div>
+      </div>
+    </section>
+
+    <section class="result-card">
+      <div>
+        <span>Roll breakdown</span>
+        <div id="resultBreakdown" class="result-breakdown">—</div>
+      </div>
+      <div class="total-block">
+        <span>Total</span>
+        <strong id="result">—</strong>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
